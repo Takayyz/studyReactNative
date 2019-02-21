@@ -281,21 +281,14 @@ export default class App extends React.Component {
         { /* 結果を表示するview */ }
         <View style={[styles.results, {flex: resultFlex}]}>
           {/* resultLineを動的に生成*/}
-          {[...Array(resultFlex).key()].reverse().map(index => {
+          {[...Array(resultFlex).keys()].reverse().map(index => {
             return (
-              <View>
+              <View style={styles.resultLine} key={"result_" + index}>
+                <Text>{this.showValue(index)}</Text>
+              </View>
             )
             }
           )}
-          {/* <View style={styles.resultLine}>
-            <Text>{this.showValue(2)}</Text>
-          </View>
-          <View style={styles.resultLine}>
-            <Text>{this.showValue(1)}</Text>
-          </View>
-          <View style={styles.resultLine}>
-            <Text>{this.showValue(0)}</Text>
-          </View> */}
         </View>
         { /* ボタンを配置するview */}
         <View style={styles.buttons}>
